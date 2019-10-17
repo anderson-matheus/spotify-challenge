@@ -2,14 +2,19 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import AlbumsContainer from './containers/Albums/AlbumsContainer';
+import GlobalStyle from './GlobalStyle';
+import { Section, Article } from './Style';
 
 const App = () => (
-  <div>
-    <p>Logo</p>
-    <Switch>
-      <Route path="/albums" component={AlbumsContainer} />
-    </Switch>
-  </div>
+  <Section>
+    <div>Logo</div>
+    <Article>
+      <Switch>
+        <Route path="/albums" component={AlbumsContainer} />
+      </Switch>
+    </Article>
+    <GlobalStyle />
+  </Section>
 );
 
 export default App;

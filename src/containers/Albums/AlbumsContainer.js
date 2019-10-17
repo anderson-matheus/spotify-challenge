@@ -1,6 +1,6 @@
 
 import React from 'react';
 
-const AlbumsContainer = () => <div>Albums</div>;
+const AlbumsContainer = () => <span>Albums</span>;
 
 export default AlbumsContainer;
