@@ -1,15 +1,15 @@
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Switch, Route } from 'react-router-dom';
+import AlbumsContainer from './containers/Albums/AlbumsContainer';
 
-const App = ({ title }) => <div>{title}</div>;
-
-App.propTypes = {
-  title: PropTypes.string,
-};
-
-App.defaultProps = {
-  title: '',
-};
+const App = () => (
+  <div>
+    <p>Logo</p>
+    <Switch>
+      <Route path="/albums" component={AlbumsContainer} />
+    </Switch>
+  </div>
+);
 
 export default App;

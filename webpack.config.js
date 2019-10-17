@@ -21,10 +21,11 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
     contentBase: './dist',
     hot: true,
+    historyApiFallback: true,
   },
 };
