@@ -7,7 +7,7 @@ export const Section = styled.section`
   div:first-child {
     width: 100px;
     height: 100vh;
-    background-color: #CCC;
+    background-color: ${(props) => props.theme.backgroundColor};
   }
 `;
 
