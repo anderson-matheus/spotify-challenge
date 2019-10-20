@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Album,
   Title,
@@ -6,11 +7,15 @@ import {
   SubTitle,
 } from './Style';
 
+const albumName = 'teste';
+
 const Card = () => (
   <Album>
-    <Image>imagem</Image>
-    <Title>título do álbum</Title>
-    <SubTitle>subtítulo do álbum</SubTitle>
+    <Link to={`/albums/${albumName}`}>
+      <Image>imagem</Image>
+      <Title>título do álbum</Title>
+      <SubTitle>subtítulo do álbum</SubTitle>
+    </Link>
   </Album>
 );
 
