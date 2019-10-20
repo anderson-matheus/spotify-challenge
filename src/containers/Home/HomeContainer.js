@@ -1,6 +1,6 @@
 import React from 'react';
 import ResearchField from 'Components/ResearchField/ResearchField';
-import Card from 'Components/Card/Card';
+import RegularCard from 'Components/RegularCard/RegularCard';
 import {
   Grid,
   Container,
@@ -17,7 +17,7 @@ const HomeContainer = () => (
     <Content>
       <HomeTitle>Álbuns buscados recentemente</HomeTitle>
       <Grid>
-        {cards.map((index) => <Card key={index} />)}
+        {cards.map((index) => <RegularCard key={index} />)}
       </Grid>
     </Content>
   </Container>

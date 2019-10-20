@@ -9,7 +9,7 @@ import {
 
 const albumName = 'teste';
 
-const Card = () => (
+const RegularCard = () => (
   <Album>
     <Link to={`/albums/${albumName}`}>
       <Image>imagem</Image>
@@ -19,4 +19,4 @@ const Card = () => (
   </Album>
 );
 
-export default Card;
+export default RegularCard;
