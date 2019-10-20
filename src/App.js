@@ -15,7 +15,7 @@ const App = () => {
     if (window.location.href.indexOf('access_token') === -1) {
       if (localStorage.getItem('access_token') === null) {
         const responseType = 'token';
-        window.location.href = `${process.env.SPOTIFY_API}/authorize?response_type=${responseType}&client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.REDIRECT_URI}`;
+        window.location.href = `${process.env.SPOTIFY_ACCOUNT}/authorize?response_type=${responseType}&client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.REDIRECT_URI}`;
       }
       return;
     }
