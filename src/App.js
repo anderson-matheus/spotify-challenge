@@ -15,7 +15,7 @@ const App = () => (
     <Article>
       <Switch>
         <Route path="/" exact component={HomeContainer} />
-        <Route path="/albums" component={AlbumsContainer} />
+        <Route path="/albums/:artist" component={AlbumsContainer} />
       </Switch>
     </Article>
     <GlobalStyle />
