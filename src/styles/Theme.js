@@ -9,6 +9,7 @@ const theme = {
   primaryColor: '#999',
   secondaryColor: '#FAFAFA',
   thirdColor: '#FFF',
+  fourthColor: '#000',
 };
 
 export default theme;
