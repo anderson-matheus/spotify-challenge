@@ -5,7 +5,7 @@ const theme = {
   regularSize: '18px',
   smallSize: '16px',
   smallestSize: '14px',
-  backgroundColor: '#000',
+  backgroundColor: '#161616',
   primaryColor: '#999',
   secondaryColor: '#FAFAFA',
   thirdColor: '#FFF',
