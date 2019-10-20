@@ -8,5 +8,9 @@
   "env": {
     "browser": true,
     "commonjs": true
+  },
+  "settings": {
+    "import/resolver": "webpack",
+    "import/extensions": [".js", ".jsx"]
   }
 }

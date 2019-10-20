@@ -14,6 +14,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+    modules: ['app', 'node_modules'],
+    alias: {
+      Components: path.resolve(__dirname, './src/components/'),
+    },
   },
   output: {
     path: path.join(__dirname, '/dist'),
@@ -28,4 +32,5 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
   },
+  
 };
