@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 import AlbumsContainer from './containers/Albums/AlbumsContainer';
 import HomeContainer from './containers/Home/HomeContainer';
 import GlobalStyle from './styles/GlobalStyle';
@@ -13,10 +13,12 @@ const App = () => (
       <img src={logo} alt="Spotify Challenge" with="50" height="50" />
     </Logo>
     <Article>
-      <Switch>
-        <Route path="/" exact component={HomeContainer} />
-        <Route path="/albums/:artist" component={AlbumsContainer} />
-      </Switch>
+      <HashRouter>
+        <Switch>
+          <Route path="/" exact component={HomeContainer} />
+          <Route path="/albums/:artist" component={AlbumsContainer} />
+        </Switch>
+      </HashRouter>
     </Article>
     <GlobalStyle />
   </Section>
