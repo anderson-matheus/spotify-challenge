@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Switch, Route, HashRouter } from 'react-router-dom';
-import AlbumsContainer from './containers/Albums/AlbumsContainer';
+import AlbumContainer from './containers/Album/AlbumContainer';
 import HomeContainer from './containers/Home/HomeContainer';
 import GlobalStyle from './styles/GlobalStyle';
 import { Section, Article, Logo } from './styles/Style';
@@ -16,7 +16,7 @@ const App = () => (
       <HashRouter>
         <Switch>
           <Route path="/" exact component={HomeContainer} />
-          <Route path="/albums/:artist" component={AlbumsContainer} />
+          <Route path="/albums/:artist" component={AlbumContainer} />
         </Switch>
       </HashRouter>
     </Article>
