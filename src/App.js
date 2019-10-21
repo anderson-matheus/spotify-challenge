@@ -5,11 +5,11 @@ import AlbumContainer from './containers/Album/AlbumContainer';
 import HomeContainer from './containers/Home/HomeContainer';
 import GlobalStyle from './styles/GlobalStyle';
 import getUrlParams from './utils/Utils';
-import { Section, Article, Logo } from './styles/Style';
-import logo from './assets/images/spotifylogo.png';
+import { Section, Article } from './styles/Style';
+import Header from './components/Header/Header';
 
 const App = () => {
-  const urlParams = getUrlParams(window.location.href);
+  const urlParams = getUrlParams;
 
   useEffect(() => {
     if (window.location.href.indexOf('access_token') === -1) {
@@ -31,9 +31,7 @@ const App = () => {
 
   return (
     <Section>
-      <Logo>
-        <img src={logo} alt="Spotify Challenge" with="50" height="50" />
-      </Logo>
+      <Header />
       <Article>
         <HashRouter>
           <Switch>
