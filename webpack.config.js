@@ -33,6 +33,7 @@ module.exports = ()  =>{
       modules: ['app', 'node_modules'],
       alias: {
         Components: path.resolve(__dirname, './src/components/'),
+        Assets: path.resolve('./src/assets/'),
       },
     },
     output: {
