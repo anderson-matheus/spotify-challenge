@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, HashRouter } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { authorize } from 'Actions/Authorize';
 import AlbumContainer from './containers/Album/AlbumContainer';
 import HomeContainer from './containers/Home/HomeContainer';
@@ -17,12 +17,12 @@ const App = () => {
     <Section>
       <Header />
       <Article>
-        <HashRouter>
+        <BrowserRouter>
           <Switch>
             <Route path="/" exact component={HomeContainer} />
             <Route path="/albums/:artist" component={AlbumContainer} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
       </Article>
       <GlobalStyle />
     </Section>
