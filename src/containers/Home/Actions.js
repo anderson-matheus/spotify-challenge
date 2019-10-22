@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { refreshToken } from 'Actions/Authorize';
 
 const search = async (value) => {
   const url = `${process.env.SPOTIFY_API}/search`;
+  await refreshToken();
   const request = await axios.get(url, {
     params: {
       q: value,

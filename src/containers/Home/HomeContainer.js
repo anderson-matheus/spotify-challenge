@@ -11,8 +11,6 @@ import {
   RecentlyViewedAlbums,
 } from './Style';
 
-const cards = Array.from(Array(Math.floor(Math.random() * 100)).keys());
-
 const HomeContainer = () => {
   const getSearch = search;
   const [value, setValue] = useState('');

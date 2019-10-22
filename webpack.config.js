@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const dotenv = require('dotenv');
 
-module.exports = ()  =>{
+module.exports = () => {
   const env = dotenv.config().parsed;
 
   const envKeys = Object.keys(env).reduce((prev, next) => {
@@ -34,6 +34,7 @@ module.exports = ()  =>{
       alias: {
         Components: path.resolve(__dirname, './src/components/'),
         Assets: path.resolve('./src/assets/'),
+        Actions: path.resolve(__dirname, './src/actions/'),
       },
     },
     output: {
