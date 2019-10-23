@@ -20,7 +20,7 @@ const App = () => {
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={HomeContainer} />
-            <Route path="/albums/:artist" component={AlbumContainer} />
+            <Route path="/albums/:albumId" component={AlbumContainer} />
           </Switch>
         </BrowserRouter>
       </Article>
