@@ -40,7 +40,7 @@ const RegularTrackCard = ({ data }) => (
 RegularTrackCard.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string,
-    album: PropTypes.array,
+    album: PropTypes.object,
     name: PropTypes.string,
     artist: PropTypes.array,
   }),
