@@ -47,10 +47,13 @@ export const authorize = () => {
 };
 
 export const refreshToken = async () => {
-  const diff = Math.abs(new Date(localStorage.getItem('EXPIRES_IN')).getTime() - new Date().getTime()) / 1000;
+  const expiresTokenDate = new Date(localStorage.getItem('EXPIRES_IN'));
+  const now = new Date();
+
+  const diff = Math.abs(expiresTokenDate.getTime() - now.getTime()) / 1000;
   const url = `${process.env.CORS_HEROKU}/${process.env.SPOTIFY_ACCOUNT}/api/token`;
 
-  if (diff < 60) {
+  if (diff < 60 || +now > +expiresTokenDate) {
     window.console.log('refresh token');
     const request = await axios.post(url,
       qs.stringify({
