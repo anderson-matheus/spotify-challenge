@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
 import ResearchField from 'Components/ResearchField/ResearchField';
-import RegularCardList from 'Components/RegularCardList/RegularCardList';
+import RegularAlbumsCardList from 'Components/RegularAlbumsCardList/RegularAlbumsCardList';
+import RegularTracksCardList from 'Components/RegularTracksCardList/RegularTracksCardList';
 import search from './Actions';
 import {
-  Grid,
   Container,
   Content,
   ResultTitle,
@@ -37,7 +37,17 @@ const HomeContainer = () => {
       return <p>Nenhum álbum buscado recentemente</p>;
     }
 
-    if (albums) return (<RegularCardList albums={albums} />);
+    if (albums) return (<RegularAlbumsCardList albums={albums} />);
+
+    return <p>Sem Resultados</p>;
+  };
+
+  const renderTracks = () => {
+    if (localStorage.getItem('RECENTLY_VIEWED_TRACKS') === null && _.get(value, 'length', 0) === 0) {
+      return <p>Nenhuma música buscada recentemente</p>;
+    }
+
+    if (tracks) return (<RegularTracksCardList tracks={tracks} />);
 
     return <p>Sem Resultados</p>;
   };
@@ -49,20 +59,31 @@ const HomeContainer = () => {
       <Content>
         {
           value ? (
-            <ResultTitle>
-              Resultados encontrados para &quot;
-              {value}
-              &quot;
-            </ResultTitle>
+            <>
+              <ResultTitle>
+                Resultados encontrados para álbuns &quot;
+                {value}
+                &quot;
+              </ResultTitle>
+              {renderAlbums()}
+              <ResultTitle>
+                Resultados encontrados para músicas &quot;
+                {value}
+                &quot;
+              </ResultTitle>
+              {renderTracks()}
+            </>
           ) : (
-            <RecentlyViewedAlbums>
-              Álbuns buscados recentemente
-            </RecentlyViewedAlbums>
+            <>
+              <RecentlyViewedAlbums>
+                Álbuns buscados recentemente
+              </RecentlyViewedAlbums>
+              <RecentlyViewedAlbums>
+                Músicas buscadas recentemente
+              </RecentlyViewedAlbums>
+            </>
           )
         }
-        <Grid>
-          {renderAlbums()}
-        </Grid>
       </Content>
     </Container>
   );
