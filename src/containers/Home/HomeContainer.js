@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
 import ResearchField from 'Components/ResearchField/ResearchField';
-import RegularCard from 'Components/RegularCard/RegularCard';
+import RegularCardList from 'Components/RegularCardList/RegularCardList';
 import search from './Actions';
 import {
   Grid,
@@ -37,15 +37,9 @@ const HomeContainer = () => {
       return <p>Nenhum álbum buscado recentemente</p>;
     }
 
-    if (_.get(albums, 'items', null) !== null && _.get(value, 'length', 0) > 0) {
-      return albums.items.map((album) => (
-        <RegularCard
-          key={album.id}
-          data={album}
-        />
-      ));
-    }
-    return <p>Nenhum álbum encontrado</p>;
+    if (albums) return (<RegularCardList albums={albums} />);
+
+    return <p>Sem Resultados</p>;
   };
 
   return (

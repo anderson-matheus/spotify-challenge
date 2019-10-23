@@ -14,7 +14,7 @@ export const authorize = () => {
 
   try {
     const url = window.location.href;
-    const urlToken = `${process.env.SPOTIFY_ACCOUNT}/api/token`;
+    const urlToken = `${process.env.CORS_HEROKU}/${process.env.SPOTIFY_ACCOUNT}/api/token`;
     const code = /code=([^&]+)/.exec(url)[1];
     localStorage.setItem('CODE', code);
     axios.post(urlToken,
@@ -48,7 +48,7 @@ export const authorize = () => {
 
 export const refreshToken = async () => {
   const diff = Math.abs(new Date(localStorage.getItem('EXPIRES_IN')).getTime() - new Date().getTime()) / 1000;
-  const url = `${process.env.SPOTIFY_ACCOUNT}/api/token`;
+  const url = `${process.env.CORS_HEROKU}/${process.env.SPOTIFY_ACCOUNT}/api/token`;
 
   if (diff < 60) {
     window.console.log('refresh token');

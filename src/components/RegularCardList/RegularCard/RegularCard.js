@@ -38,10 +38,12 @@ const RegularCard = ({ data }) => (
 );
 
 RegularCard.propTypes = {
-  data: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.objectOf,
-  ]),
+  data: PropTypes.shape({
+    id: PropTypes.string,
+    images: PropTypes.array,
+    name: PropTypes.string,
+    artist: PropTypes.array,
+  }),
 };
 
 RegularCard.defaultProps = {
