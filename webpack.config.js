@@ -28,6 +28,7 @@ module.exports = () => {
         },
       ],
     },
+    devtool: 'source-map',
     resolve: {
       extensions: ['*', '.js', '.jsx'],
       modules: ['app', 'node_modules'],
@@ -40,6 +41,7 @@ module.exports = () => {
     output: {
       path: path.join(__dirname, '/dist'),
       filename: 'bundle.js',
+      publicPath: '/',
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
