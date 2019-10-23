@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ResearchField from 'Components/ResearchField/ResearchField';
 import RegularAlbumsCardList from 'Components/RegularAlbumsCardList/RegularAlbumsCardList';
 import RegularTracksCardList from 'Components/RegularTracksCardList/RegularTracksCardList';
+import Message from 'Components/Message/Message';
 import search from './Actions';
 import {
   Container,
@@ -59,18 +60,18 @@ const HomeContainer = () => {
 
   const renderAlbums = () => {
     if (localStorage.getItem('RECENTLY_VIEWED_ALBUMS') === null && _.get(searchValue, 'length', 0) === 0) {
-      return <p>Nenhum álbum buscado recentemente</p>;
+      return <Message message="Nenhuma música buscada recentemente" />;
     }
     if (albums) return (<RegularAlbumsCardList albums={albums} />);
-    return <p>Sem Resultados</p>;
+    return <Message message="Sem resultados" />;
   };
 
   const renderTracks = () => {
     if (localStorage.getItem('RECENTLY_VIEWED_TRACKS') === null && _.get(searchValue, 'length', 0) === 0) {
-      return <p>Nenhuma música buscada recentemente</p>;
+      return <Message message="Nenhum álbum buscado recentemente" />;
     }
     if (tracks) return (<RegularTracksCardList tracks={tracks} />);
-    return <p>Sem Resultados</p>;
+    return <Message message="Sem resultados" />;
   };
 
   return (
@@ -78,33 +79,14 @@ const HomeContainer = () => {
       <ResearchField value={searchValue} onChange={onChange} />
 
       <Content>
-        {
-          searchValue ? (
-            <>
-              <ResultTitle>
-                Resultados encontrados para álbuns &quot;
-                {searchValue}
-                &quot;
-              </ResultTitle>
-              {renderAlbums()}
-              <ResultTitle>
-                Resultados encontrados para músicas &quot;
-                {searchValue}
-                &quot;
-              </ResultTitle>
-              {renderTracks()}
-            </>
-          ) : (
-            <>
-              <RecentlyViewedAlbums>
-                Álbuns buscados recentemente
-              </RecentlyViewedAlbums>
-              <RecentlyViewedAlbums>
-                Músicas buscadas recentemente
-              </RecentlyViewedAlbums>
-            </>
-          )
-        }
+        <ResultTitle>
+          {searchValue ? `Resultados encontrados para álbuns "${searchValue}"` : 'Álbuns buscados recentemente' }
+        </ResultTitle>
+        {renderAlbums()}
+        <ResultTitle>
+          {searchValue ? `Resultados encontrados para músicas "${searchValue}"` : 'Músicas buscadas recentemente'}
+        </ResultTitle>
+        {renderTracks()}
       </Content>
     </Container>
   );

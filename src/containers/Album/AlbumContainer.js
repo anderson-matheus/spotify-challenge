@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ButtonBack from 'Components/ButtonBack/ButtonBack';
 import BigCard from 'Components/BigCard/BigCard';
 import SongList from 'Components/SongsList/SongsList';
+import Message from 'Components/Message/Message';
 import { useParams } from 'react-router-dom';
 import { Container, Button } from './Style';
 import fetchAlbum from './Actions';
@@ -25,12 +26,12 @@ const AlbumContainer = () => {
 
   const renderAlbum = () => {
     if (album) return <BigCard album={album} />;
-    return <p>sem resultados</p>;
+    return <Message message="Sem resultados" />;
   };
 
   const renderSongs = () => {
     if (songs) return <SongList songs={songs} />;
-    return <p>sem resultados</p>;
+    return <Message message="Sem resultados" />;
   };
 
   return (
