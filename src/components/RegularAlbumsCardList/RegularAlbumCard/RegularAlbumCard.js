@@ -9,7 +9,7 @@ import {
   SubTitle,
 } from './Style';
 
-const RegularCard = ({ data }) => (
+const RegularAlbumCard = ({ data }) => (
   <Album>
     <Link to={`/albums/${_.get(data, 'id', '')}`}>
       <Image>
@@ -37,7 +37,7 @@ const RegularCard = ({ data }) => (
   </Album>
 );
 
-RegularCard.propTypes = {
+RegularAlbumCard.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string,
     images: PropTypes.array,
@@ -46,8 +46,8 @@ RegularCard.propTypes = {
   }),
 };
 
-RegularCard.defaultProps = {
+RegularAlbumCard.defaultProps = {
   data: '',
 };
 
-export default RegularCard;
+export default RegularAlbumCard;
