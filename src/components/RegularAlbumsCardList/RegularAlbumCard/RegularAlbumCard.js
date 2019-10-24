@@ -9,8 +9,8 @@ import {
   SubTitle,
 } from './Style';
 
-const RegularAlbumCard = ({ data }) => (
-  <Album>
+const RegularAlbumCard = ({ data, onClick }) => (
+  <Album onClick={() => onClick(data)}>
     <Link to={`/albums/${_.get(data, 'id', '')}`}>
       <Image>
         <img
@@ -44,6 +44,7 @@ RegularAlbumCard.propTypes = {
     name: PropTypes.string,
     artist: PropTypes.array,
   }),
+  onClick: PropTypes.func.isRequired,
 };
 
 RegularAlbumCard.defaultProps = {

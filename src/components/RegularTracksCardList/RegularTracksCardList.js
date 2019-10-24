@@ -5,11 +5,35 @@ import Message from 'Components/Message/Message';
 import RegularTrackCard from './RegularTrackCard/RegularTrackCard';
 import Grid from './Style';
 
-const RegularTracksCardList = ({ tracks }) => (
-  _.get(tracks, 'items.length', 0) > 0
-    ? <Grid>{tracks.items.map((track) => (<RegularTrackCard key={track.id} data={track} />))}</Grid>
-    : <Message message="Não possue mais resultados" />
-);
+const RegularTracksCardList = ({ tracks }) => {
+  const onClick = (track) => {
+    let recentlyTracks;
+    recentlyTracks = [];
+    if (localStorage.getItem('RECENTLY_VIEWED_TRACKS') === null || localStorage.getItem('RECENTLY_VIEWED_TRACKS') === undefined) {
+      recentlyTracks.push(track);
+      localStorage.setItem('RECENTLY_VIEWED_TRACKS', JSON.stringify(recentlyTracks));
+      return;
+    }
+
+    recentlyTracks = JSON.parse(localStorage.getItem('RECENTLY_VIEWED_TRACKS'));
+    const isExists = recentlyTracks.filter((recentlyTrack) => recentlyTrack.id === track.id);
+    if (_.get(isExists, 'length', 0) === 0) {
+      recentlyTracks.push(track);
+      localStorage.setItem('RECENTLY_VIEWED_TRACKS', JSON.stringify(recentlyTracks));
+    }
+  };
+
+  return (
+    _.get(tracks, 'items.length', 0) > 0
+      ? (
+        <Grid>
+          {tracks.items.map((track) => (
+            <RegularTrackCard key={track.id} data={track} onClick={onClick} />))}
+        </Grid>
+      )
+      : <Message message="Não possue mais resultados" />
+  );
+};
 
 RegularTracksCardList.defaultProps = {
   tracks: '',
