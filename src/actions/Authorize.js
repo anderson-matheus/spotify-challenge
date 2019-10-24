@@ -10,7 +10,7 @@ export const authorize = () => {
     return;
   }
 
-  if (localStorage.getItem('ACCESS_TOKEN') !== null) return;
+  if (localStorage.getItem('ACCESS_TOKEN') !== null && localStorage.getItem('ACCESS_TOKEN') !== undefined) return;
 
   try {
     const url = window.location.href;
@@ -54,7 +54,6 @@ export const refreshToken = async () => {
   const url = `${process.env.CORS_HEROKU}/${process.env.SPOTIFY_ACCOUNT}/api/token`;
 
   if (diff < 60 || +now > +expiresTokenDate) {
-    window.console.log('refresh token');
     const request = await axios.post(url,
       qs.stringify({
         grant_type: 'refresh_token',
