@@ -10,6 +10,7 @@ module.exports = () => {
     prev[`process.env.${next}`] = JSON.stringify(env[next]);
     return prev;
   }, {});
+  const baseName = envKeys['process.env.BASE_NAME'];
 
   return {
     entry: './src/index.js',
@@ -41,7 +42,7 @@ module.exports = () => {
     output: {
       path: path.join(__dirname, '/dist'),
       filename: 'bundle.js',
-      publicPath: '/',
+      publicPath: baseName.replace(/"([^"]+(?="))"/g, '$1'),
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),

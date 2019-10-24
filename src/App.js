@@ -20,7 +20,7 @@ const App = () => {
       <Section>
         <Header />
         <Article>
-          <BrowserRouter>
+          <BrowserRouter basename={process.env.BASE_NAME}>
             <Switch>
               <Route path="/" exact component={HomeContainer} />
               <Route path="/albums/:albumId" component={AlbumContainer} />
