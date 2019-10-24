@@ -50,10 +50,10 @@ export const refreshToken = async () => {
   const expiresTokenDate = new Date(localStorage.getItem('EXPIRES_IN'));
   const now = new Date();
 
-  const diff = Math.abs(expiresTokenDate.getTime() - now.getTime()) / 1000;
+  // const diff = Math.abs(expiresTokenDate.getTime() - now.getTime()) / 1000;
   const url = `${process.env.CORS_HEROKU}/${process.env.SPOTIFY_ACCOUNT}/api/token`;
 
-  if (diff < 60 || +now > +expiresTokenDate) {
+  if (+now >= +expiresTokenDate) {
     const request = await axios.post(url,
       qs.stringify({
         grant_type: 'refresh_token',
@@ -66,7 +66,6 @@ export const refreshToken = async () => {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       }).then((res) => {
-      window.console.log('aqui');
       const { data } = res;
       const date = new Date();
       let expiresIn = Number(data.expires_in);
