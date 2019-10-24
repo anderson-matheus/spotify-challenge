@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import { shortenText, shortenArtists } from 'Utils/Utils';
 import {
   Album,
   Title,
@@ -19,17 +20,10 @@ const BigCard = ({ album }) => (
       />
     </Image>
     <Title>
-      {(
-        _.get(album, 'name', '').length <= 25
-          ? _.get(album, 'name', '') : `${_.get(album, 'name', '').substr(0, 25)}...`
-      )}
+      {shortenText(_.get(album, 'name', ''), 25)}
     </Title>
     <SubTitle>
-      {(
-        _.get(album, 'artists', []).map((artist) => artist.name).join(', ').length <= 30
-          ? _.get(album, 'artists', []).map((artist) => artist.name).join(', ')
-          : `${_.get(album, 'artists', []).map((artist) => artist.name).join(', ').substr(0, 30)}...`
-      )}
+      {shortenArtists(_.get(album, 'artists', []), 30)}
     </SubTitle>
   </Album>
 );

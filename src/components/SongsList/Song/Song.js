@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import { shortenText } from 'Utils/Utils';
 import {
   Music,
   SongNumber,
@@ -11,7 +12,7 @@ import {
 const Song = ({ data, index, onClick }) => (
   <Music onClick={() => onClick(data)}>
     <SongNumber>{`${index + 1}.`}</SongNumber>
-    <SongName>{_.get(data, 'name', '')}</SongName>
+    <SongName>{shortenText(_.get(data, 'name', ''), 30)}</SongName>
     <SongTime>{new Date(_.get(data, 'duration_ms', 0)).toISOString().substr(11, 8)}</SongTime>
   </Music>
 );

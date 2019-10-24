@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import { shortenText, shortenArtists } from 'Utils/Utils';
 import {
   Album,
   Title,
@@ -21,17 +22,10 @@ const RegularAlbumCard = ({ data, onClick }) => (
         />
       </Image>
       <Title>
-        {(
-          _.get(data, 'name', '').length <= 20
-            ? _.get(data, 'name', '') : `${_.get(data, 'name', '').substr(0, 20)}...`
-        )}
+        {shortenText(_.get(data, 'name', ''), 20)}
       </Title>
       <SubTitle>
-        {(
-          _.get(data, 'artists', []).map((artist) => artist.name).join(', ').length <= 25
-            ? _.get(data, 'artists', []).map((artist) => artist.name).join(', ')
-            : `${_.get(data, 'artists', []).map((artist) => artist.name).join(', ').substr(0, 25)}...`
-        )}
+        {shortenArtists(_.get(data, 'artists', []), 25)}
       </SubTitle>
     </Link>
   </Album>
