@@ -37,6 +37,21 @@ $ npm start
 
 ## Rodando projeto em prod
 
+Para rodar o projeto em produção deve mudar no env a variável APP_ENV para production e alterar o BASE_NAME caso seja necessário
+
+## Exemplo de configuração de env para produção
+
+```
+SPOTIFY_ACCOUNT='https://accounts.spotify.com'
+SPOTIFY_API='https://api.spotify.com/v1'
+CLIENT_ID='CLIENT_ID'
+CLIENT_SECRET='CLIENT_SECRET'
+REDIRECT_URI='http://localhost/spotify'
+CORS_HEROKU='https://cors-anywhere.herokuapp.com'
+APP_ENV='production'
+BASE_NAME='/spotify'
+```
+
 
 ```
 $ npm run build
