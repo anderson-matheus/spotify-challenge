@@ -3,11 +3,12 @@ import React, { useEffect } from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { authorize } from 'Actions/Authorize';
+import Header from 'Components/Header/Header';
+import PlayerMusic from 'Components/PlayerMusic/PlayerMusic';
 import AlbumContainer from './containers/Album/AlbumContainer';
 import HomeContainer from './containers/Home/HomeContainer';
 import GlobalStyle from './styles/GlobalStyle';
 import { Section, Article } from './styles/Style';
-import Header from './components/Header/Header';
 import store from './store';
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
           </BrowserRouter>
         </Article>
         <GlobalStyle />
+        <PlayerMusic />
       </Section>
     </Provider>
   );
