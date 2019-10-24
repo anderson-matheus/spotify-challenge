@@ -37,6 +37,7 @@ module.exports = () => {
         Components: path.resolve(__dirname, './src/components/'),
         Assets: path.resolve('./src/assets/'),
         Actions: path.resolve(__dirname, './src/actions/'),
+        Utils: path.resolve(__dirname, './src/Utils/'),
       },
     },
     output: {
