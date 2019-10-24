@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import { useDispatch } from 'react-redux';
 import Message from 'Components/Message/Message';
 import RegularTrackCard from './RegularTrackCard/RegularTrackCard';
 import Grid from './Style';
 
 const RegularTracksCardList = ({ tracks }) => {
+  const dispatch = useDispatch();
   const onClick = (track) => {
+    const data = track;
+    dispatch({ type: 'ACTIVE_MUSIC', track: data });
     let recentlyTracks;
     recentlyTracks = [];
     if (localStorage.getItem('RECENTLY_VIEWED_TRACKS') === null || localStorage.getItem('RECENTLY_VIEWED_TRACKS') === undefined) {
