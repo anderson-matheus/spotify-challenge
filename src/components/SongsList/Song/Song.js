@@ -8,8 +8,8 @@ import {
   SongTime,
 } from './Style';
 
-const Song = ({ data, index }) => (
-  <Music>
+const Song = ({ data, index, onClick }) => (
+  <Music onClick={() => onClick(data)}>
     <SongNumber>{`${index + 1}.`}</SongNumber>
     <SongName>{_.get(data, 'name', '')}</SongName>
     <SongTime>{new Date(_.get(data, 'duration_ms', 0)).toISOString().substr(11, 8)}</SongTime>
@@ -22,6 +22,7 @@ Song.propTypes = {
     duration_ms: PropTypes.number,
   }),
   index: PropTypes.number,
+  onClick: PropTypes.func.isRequired,
 };
 
 Song.defaultProps = {
