@@ -6,7 +6,7 @@
 ```
 $ git clone https://github.com/anderson-matheus/spotify-challenge.git
 $ cd spotify-challenge
-$ npm installl
+$ npm install
 $ cp .env.example .env
 ```
 
