@@ -3,6 +3,7 @@ import { createStore } from 'redux';
 const INITIAL_STATE = {
   searchValue: '',
   requests: [],
+  activeMusic: '',
 };
 
 function spotify(state = INITIAL_STATE, action) {
@@ -11,6 +12,8 @@ function spotify(state = INITIAL_STATE, action) {
       return { ...state, searchValue: action.search };
     case 'REQUESTS':
       return { ...state, requests: action.request };
+    case 'ACTIVE_MUSIC':
+      return { ...state, activeMusic: action.track };
     default:
       return state;
   }
