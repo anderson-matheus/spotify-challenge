@@ -9,7 +9,7 @@ export const Container = styled.div`
   section:last-child {
     float: right;
     width: 70%;
-    padding: 0 0 0 50px;
+    padding: 0 0 100px 50px;
   }
 
   @media only screen and (max-width: 992px) {
@@ -19,6 +19,7 @@ export const Container = styled.div`
 
     section:last-child {
       width: 55%;
+      padding-bottom: 100px;
     }
   }
 
@@ -30,7 +31,7 @@ export const Container = styled.div`
 
     section:last-child {
       width: 100%;
-      padding: 0;
+      padding: 0 0 100px 0;
     }
   }
 `;

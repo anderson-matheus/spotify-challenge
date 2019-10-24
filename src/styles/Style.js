@@ -16,6 +16,6 @@ export const Article = styled.article`
 
   @media only screen and (max-width: 768px) {
     width: 100%;
-    padding: 3s0px;
+    padding: 30px;
   }
 `;

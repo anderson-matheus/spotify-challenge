@@ -10,7 +10,6 @@ import {
   Container,
   Content,
   ResultTitle,
-  RecentlyViewedAlbums,
 } from './Style';
 
 const HomeContainer = () => {
