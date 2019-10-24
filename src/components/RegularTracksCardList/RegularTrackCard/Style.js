@@ -2,16 +2,10 @@ import styled from 'styled-components';
 
 export const Track = styled.article`
   height: 260px;
+  padding: 10px 0;
+  cursor: pointer;
 
-  a {
-    float: left;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    padding: 10px 0;
-  }
-
-  a:hover {
+  &:hover {
     background-color: ${(props) => props.theme.fourthColor};
     opacity: 0.5;
   }
