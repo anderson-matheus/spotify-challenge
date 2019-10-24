@@ -60,18 +60,24 @@ const HomeContainer = () => {
 
   const renderAlbums = () => {
     if (localStorage.getItem('RECENTLY_VIEWED_ALBUMS') === null && _.get(searchValue, 'length', 0) === 0) {
-      return <Message message="Nenhuma música buscada recentemente" />;
+      return <Message message="Nenhum álbum buscado recentemente" />;
     }
     if (albums) return (<RegularAlbumsCardList albums={albums} />);
-    return <Message message="Sem resultados" />;
+
+    const recentlyAlbums = {};
+    recentlyAlbums.items = JSON.parse(localStorage.getItem('RECENTLY_VIEWED_ALBUMS'));
+    return <RegularAlbumsCardList albums={recentlyAlbums} />;
   };
 
   const renderTracks = () => {
     if (localStorage.getItem('RECENTLY_VIEWED_TRACKS') === null && _.get(searchValue, 'length', 0) === 0) {
-      return <Message message="Nenhum álbum buscado recentemente" />;
+      return <Message message="Nenhuma música buscada recentemente" />;
     }
     if (tracks) return (<RegularTracksCardList tracks={tracks} />);
-    return <Message message="Sem resultados" />;
+
+    const recentlyTracks = {};
+    recentlyTracks.items = JSON.parse(localStorage.getItem('RECENTLY_VIEWED_TRACKS'));
+    return <RegularTracksCardList tracks={recentlyTracks} />;
   };
 
   return (
